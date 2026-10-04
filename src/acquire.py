@@ -13,7 +13,23 @@ def load_config(path):
     """Load genome accessions and settings from YAML."""
     with open(path, "r") as file:
         return yaml.safe_load(file)
+    
 
+def validate_fasta(fasta_path):
+    """Check that a FASTA file exists, is non-empty, and has a header."""
+
+    if not fasta_path.exists():
+        raise RuntimeError(f"FASTA file does not exist: {fasta_path}")
+
+    if fasta_path.stat().st_size == 0:
+        raise RuntimeError(f"FASTA file is empty: {fasta_path}")
+
+    with open(fasta_path, "r") as file:
+        first_line = file.readline()
+
+    if not first_line.startswith(">"):
+        raise RuntimeError(f"Invalid FASTA file: {fasta_path}")
+    
 
 def download_genome(accession, output_dir):
     """Download and extract a genome FASTA from NCBI."""
@@ -60,6 +76,7 @@ def download_genome(accession, output_dir):
         )
 
     shutil.copy(fasta_files[0], final_fasta)
+    validate_fasta(final_fasta)
 
     print(f"Saved FASTA: {final_fasta}")
 
