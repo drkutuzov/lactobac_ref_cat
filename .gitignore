@@ -1,0 +1,14 @@
+# Downloaded genome data
+data/raw/*
+!data/raw/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# macOS
+.DS_Store
+
+# NCBI downloads
+*.zip
