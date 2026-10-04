@@ -1,0 +1,18 @@
+genomes:
+  # Target genomes
+  - accession: GCF_000011985.1
+    organism: Lactobacillus acidophilus NCFM
+
+  - accession: GCF_018722265.1
+    organism: Lactobacillus delbrueckii subsp. bulgaricus
+
+  # We will add four more Lactobacillus assemblies here
+
+  # Decoy genomes
+  - accession: GCF_000005845.2
+    organism: Escherichia coli K-12 MG1655
+
+  - accession: GCF_000009045.1
+    organism: Bacillus subtilis 168
+
+output_dir: data/raw
