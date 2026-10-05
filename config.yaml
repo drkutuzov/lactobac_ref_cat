@@ -31,3 +31,6 @@ qc:
   min_n50: 50000
   min_completeness: 90.0
   max_contamination: 5.0
+
+taxonomy:
+  expected_genus: Lactobacillus
