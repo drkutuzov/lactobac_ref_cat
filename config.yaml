@@ -26,3 +26,8 @@ genomes:
     organism: Bacillus subtilis 168
 
 output_dir: data/raw
+
+qc:
+  min_n50: 50000
+  min_completeness: 90.0
+  max_contamination: 5.0

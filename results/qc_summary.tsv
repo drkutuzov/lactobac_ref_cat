@@ -1,0 +1,9 @@
+accession	organism	contigs	total_length	gc_percent	n50	status
+GCF_000011985.1	Lactobacillus acidophilus NCFM	1	1993560	34.71	1993560	PASS
+GCF_000008065.1	Lactobacillus johnsonii NCC 533	1	1992676	34.61	1992676	PASS
+GCF_000014425.1	Lactobacillus gasseri ATCC 33323	1	1894360	35.26	1894360	PASS
+GCF_000056065.1	Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842	1	1864998	49.72	1864998	PASS
+GCF_000091765.1	Lactobacillus crispatus ST1	1	2043161	36.89	2043161	PASS
+GCF_000182855.2	Lactobacillus amylovorus GRL 1112	3	2126674	38.07	2067702	PASS
+GCF_000005845.2	Escherichia coli K-12 MG1655	1	4641652	50.79	4641652	PASS
+GCF_000009045.1	Bacillus subtilis 168	1	4215606	43.51	4215606	PASS
