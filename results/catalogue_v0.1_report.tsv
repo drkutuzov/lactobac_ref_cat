@@ -1,0 +1,9 @@
+accession	organism	n50	qc_status	dominant_genus	genus_percent	taxonomy_status	final_status	reason
+GCF_000011985.1	Lactobacillus acidophilus NCFM	1993560	PASS	Lactobacillus	100.0	PASS	PASS	Passed all gates
+GCF_000008065.1	Lactobacillus johnsonii NCC 533	1992676	PASS	Lactobacillus	100.0	PASS	PASS	Passed all gates
+GCF_000014425.1	Lactobacillus gasseri ATCC 33323	1894360	PASS	Lactobacillus	100.0	PASS	PASS	Passed all gates
+GCF_000056065.1	Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842	1864998	PASS	Lactobacillus	100.0	PASS	PASS	Passed all gates
+GCF_000091765.1	Lactobacillus crispatus ST1	2043161	PASS	Lactobacillus	100.0	PASS	PASS	Passed all gates
+GCF_000182855.2	Lactobacillus amylovorus GRL 1112	2067702	PASS	Lactobacillus	100.0	PASS	PASS	Passed all gates
+GCF_000005845.2	Escherichia coli K-12 MG1655	4641652	PASS	Escherichia	100.0	FAIL	FAIL	Unexpected genus: Escherichia
+GCF_000009045.1	Bacillus subtilis 168	4215606	PASS	Bacillus	100.0	FAIL	FAIL	Unexpected genus: Bacillus

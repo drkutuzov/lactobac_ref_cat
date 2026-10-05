@@ -34,3 +34,7 @@ qc:
 
 taxonomy:
   expected_genus: Lactobacillus
+
+catalogue:
+  version: "0.1"
+  output_dir: results
