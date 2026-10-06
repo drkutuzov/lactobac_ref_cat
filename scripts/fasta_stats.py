@@ -1,4 +1,5 @@
 from pathlib import Path
+import argparse
 import csv
 import yaml
 
@@ -63,15 +64,45 @@ def calculate_gc(sequences):
 
 
 def main():
-    
-    config = load_config(CONFIG_PATH)
-
-    version = config["catalogue"]["version"]
-    output_dir = Path(config["catalogue"]["output_dir"])
-
-    fasta_path = (
-        output_dir / f"lactobacillus_catalogue_v{version}.fasta"
+    parser = argparse.ArgumentParser(
+        description="Calculate statistics for a curated FASTA catalogue."
     )
+
+    parser.add_argument(
+        "--input",
+        help="Input catalogue FASTA file."
+    )
+
+    parser.add_argument(
+        "--output",
+        help="Output TSV file."
+    )
+
+    args = parser.parse_args()
+
+    if args.input and args.output:
+        # Workflow mode: paths are supplied explicitly.
+        fasta_path = Path(args.input)
+        output_path = Path(args.output)
+
+    else:
+        # Standalone mode: determine paths from config.yaml.
+        config = load_config(CONFIG_PATH)
+
+        version = config["catalogue"]["version"]
+        output_dir = Path(config["catalogue"]["output_dir"])
+
+        fasta_path = (
+            Path(args.input)
+            if args.input
+            else output_dir / f"lactobacillus_catalogue_v{version}.fasta"
+        )
+
+        output_path = (
+            Path(args.output)
+            if args.output
+            else output_dir / f"catalogue_v{version}_stats.tsv"
+        )
 
     genomes = {}
 
@@ -120,8 +151,6 @@ def main():
             f"GC={gc_percent:.2f}%"
         )
 
-        output_path = output_dir / f"catalogue_v{version}_stats.tsv"
-
     with open(output_path, "w", newline="") as file:
         fieldnames = [
             "accession",
@@ -141,7 +170,6 @@ def main():
         writer.writerows(results)
 
     print(f"\nStatistics written to {output_path}")
-
 
 
 if __name__ == "__main__":

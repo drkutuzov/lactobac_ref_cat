@@ -21,3 +21,8 @@ databases/
 
 # Generated Kraken2 output
 results/kraken2/
+
+# Nextflow
+work/
+.nextflow/
+.nextflow.log*
