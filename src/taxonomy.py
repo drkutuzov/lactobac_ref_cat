@@ -62,7 +62,7 @@ def main():
     config = load_config(CONFIG_PATH)
 
     raw_dir = Path(config["output_dir"])
-    database_dir = Path("databases/kraken2")
+    database_dir = Path(config["databases"]["kraken2"])
     results_dir = Path("results/kraken2")
     results_dir.mkdir(parents=True, exist_ok=True)
 

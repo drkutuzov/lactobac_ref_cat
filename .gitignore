@@ -26,3 +26,18 @@ results/kraken2/
 work/
 .nextflow/
 .nextflow.log*
+
+# Snakemake
+.snakemake/
+
+# Generated CheckM2 output
+results/checkm2/
+
+# Temporary backups
+backups/
+
+# Conda environments
+.conda/
+
+# QUAST test output
+results/quast_test/

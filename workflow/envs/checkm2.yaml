@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+  - bioconda
+
+dependencies:
+  - python=3.12
+  - checkm2=1.1.0
+  - scikit-learn=1.6.1

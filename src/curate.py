@@ -29,6 +29,14 @@ def main():
 
     qc_results = load_tsv("results/qc_summary.tsv")
     taxonomy_results = load_tsv("results/taxonomy_summary.tsv")
+    checkm2_results = {}
+
+    with open("results/checkm2/quality_report.tsv") as file:
+        reader = csv.DictReader(file, delimiter="\t")
+
+        for row in reader:
+            accession = row["Name"].removesuffix("_genomic")
+            checkm2_results[accession] = row
 
     curated_records = []
 
@@ -38,6 +46,10 @@ def main():
 
         qc = qc_results[accession]
         taxonomy = taxonomy_results[accession]
+        checkm2 = checkm2_results[accession]
+
+        completeness = float(checkm2["Completeness"])
+        contamination = float(checkm2["Contamination"])
 
         reasons = []
 
@@ -49,6 +61,16 @@ def main():
         if taxonomy["status"] != "PASS":
             reasons.append(
                 f"Unexpected genus: {taxonomy['dominant_genus']}"
+            )
+
+        if completeness < config["qc"]["min_completeness"]:
+            reasons.append(
+                f"Completeness below threshold ({completeness:.2f}%)"
+            )
+
+        if contamination > config["qc"]["max_contamination"]:
+            reasons.append(
+                f"Contamination above threshold ({contamination:.2f}%)"
             )
 
         if reasons:
@@ -63,6 +85,8 @@ def main():
                 "accession": accession,
                 "organism": organism,
                 "n50": qc["n50"],
+                "completeness": completeness,
+                "contamination": contamination,
                 "qc_status": qc["status"],
                 "dominant_genus": taxonomy["dominant_genus"],
                 "genus_percent": taxonomy["genus_percent"],
@@ -86,6 +110,8 @@ def main():
         "accession",
         "organism",
         "n50",
+        "completeness", 
+        "contamination",
         "qc_status",
         "dominant_genus",
         "genus_percent",

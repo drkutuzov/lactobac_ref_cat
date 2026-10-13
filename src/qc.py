@@ -20,7 +20,7 @@ def run_quast(fasta_path, output_dir):
 
     subprocess.run(
         [
-            "quast",
+            "quast.py",
             str(fasta_path),
             "-o",
             str(output_dir),
