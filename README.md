@@ -67,6 +67,62 @@ databases:
 The example workflow was tested with the Kraken2 Standard-8 database
 dated 2026-06-26.
 
+### Length-weighted taxonomy validation
+
+Kraken2 is used to classify each genome assembly.
+
+In addition to identifying the dominant genus, the pipeline calculates
+the percentage of assembly base pairs belonging to contigs classified
+within the expected genus.
+
+For each contig, its Kraken2 taxonomic assignment is traced to the
+genus level using the NCBI taxonomy tree.
+
+The percentage is calculated as:
+
+expected_genus_bp_percent =
+    100 × expected_genus_bp / total_assembly_bp
+
+An assembly passes taxonomy validation only if:
+
+1. Its dominant genus matches the expected genus.
+2. At least 95% of its assembly base pairs belong to contigs
+   classified within the expected genus.
+
+Both the expected genus and the threshold are configurable
+in config.yaml.
+
+The calculation also reports the percentage of assembly base pairs
+belonging to unclassified contigs.
+
+**Limitation:** This is a contig-length-weighted metric, not
+a nucleotide-level classification. A contig assigned to a genus
+contributes its entire length to that genus.
+
+**Database requirement:** The configured Kraken2 database must
+contain nodes.dmp and names.dmp for taxonomic ancestry resolution.
+
+#### Database provenance
+
+The pipeline was tested using the following Kraken2 database:
+
+- **Database:** Standard-8 (8 GB)
+- **Release:** 2026-06-26
+- **Archive:** `k2_standard_08_GB_20260626.tar.gz`
+- **SHA-256:**
+
+  ```text
+  b17d05ca1459564b49b63d014c4b2ee6ebe1ca0143e6c184e0dfd6d940a55981
+  ```
+
+To verify the downloaded archive on macOS or Linux:
+
+```bash
+shasum -a 256 databases/kraken2/k2_standard_08_GB_20260626.tar.gz
+```
+
+The calculated checksum should match the value above.
+
 Download and extract a compatible Kraken2 database into the configured
 directory.
 

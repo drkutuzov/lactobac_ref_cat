@@ -34,6 +34,7 @@ qc:
 
 taxonomy:
   expected_genus: Lactobacillus
+  min_expected_genus_bp_percent: 95.0
 
 catalogue:
   version: "0.1"

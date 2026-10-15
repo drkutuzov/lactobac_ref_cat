@@ -59,9 +59,20 @@ def main():
             )
 
         if taxonomy["status"] != "PASS":
-            reasons.append(
-                f"Unexpected genus: {taxonomy['dominant_genus']}"
-            )
+            expected_genus = config["taxonomy"]["expected_genus"]
+            min_bp = config["taxonomy"]["min_expected_genus_bp_percent"]
+            actual_bp = float(taxonomy["expected_genus_bp_percent"])
+
+            if taxonomy["dominant_genus"] != expected_genus:
+                reasons.append(
+                    f"Unexpected genus: {taxonomy['dominant_genus']}"
+                )
+
+            if actual_bp < min_bp:
+                reasons.append(
+                    f"Expected genus bp below threshold "
+                    f"({actual_bp:.2f}% < {min_bp:.2f}%)"
+                )
 
         if completeness < config["qc"]["min_completeness"]:
             reasons.append(
@@ -90,6 +101,8 @@ def main():
                 "qc_status": qc["status"],
                 "dominant_genus": taxonomy["dominant_genus"],
                 "genus_percent": taxonomy["genus_percent"],
+                "expected_genus_bp_percent": taxonomy["expected_genus_bp_percent"],
+                "unclassified_bp_percent": taxonomy["unclassified_bp_percent"],
                 "taxonomy_status": taxonomy["status"],
                 "final_status": final_status,
                 "reason": reason,
@@ -115,6 +128,8 @@ def main():
         "qc_status",
         "dominant_genus",
         "genus_percent",
+        "expected_genus_bp_percent",
+        "unclassified_bp_percent",
         "taxonomy_status",
         "final_status",
         "reason",
@@ -125,6 +140,7 @@ def main():
             file,
             fieldnames=fieldnames,
             delimiter="\t",
+            lineterminator="\n",
         )
         writer.writeheader()
         writer.writerows(curated_records)
