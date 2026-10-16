@@ -60,6 +60,67 @@ def parse_quast_report(report_path):
     return metrics
 
 
+def process_genome(accession, config):
+    """Run QUAST and save QC results for one genome."""
+
+    genomes = {
+        genome["accession"]: genome
+        for genome in config["genomes"]
+    }
+
+    if accession not in genomes:
+        raise ValueError(f"Unknown accession: {accession}")
+
+    genome = genomes[accession]
+
+    raw_dir = Path(config["output_dir"])
+    fasta_path = raw_dir / f"{accession}_genomic.fna"
+
+    quast_dir = Path("results/quast") / accession
+
+    run_quast(fasta_path, quast_dir)
+
+    metrics = parse_quast_report(quast_dir / "report.tsv")
+
+    status = (
+        "PASS"
+        if metrics["n50"] >= config["qc"]["min_n50"]
+        else "FAIL"
+    )
+
+    output_dir = Path("results/qc")
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    output_path = output_dir / f"{accession}.tsv"
+
+    with output_path.open("w", newline="") as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=[
+                "accession",
+                "organism",
+                "contigs",
+                "total_length",
+                "gc_percent",
+                "n50",
+                "status",
+            ],
+            delimiter="\t",
+            lineterminator="\n",
+        )
+
+        writer.writeheader()
+        writer.writerow({
+            "accession": accession,
+            "organism": genome["organism"],
+            **metrics,
+            "status": status,
+        })
+
+    print(f"{accession}: N50={metrics['n50']:,} bp → {status}")
+    print(f"QC saved: {output_path}")
+
+
 def main():
     config = load_config(CONFIG_PATH)
 
@@ -127,4 +188,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    if len(sys.argv) == 2:
+        config = load_config(CONFIG_PATH)
+        process_genome(sys.argv[1], config)
+    else:
+        main()

@@ -1,44 +1,114 @@
 genomes:
-  # Lactobacillus targets
-  - accession: GCF_000011985.1
-    organism: Lactobacillus acidophilus NCFM
-
-  - accession: GCF_000008065.1
-    organism: Lactobacillus johnsonii NCC 533
-
-  - accession: GCF_000014425.1
-    organism: Lactobacillus gasseri ATCC 33323
-
-  - accession: GCF_000056065.1
-    organism: Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842
-
-  - accession: GCF_000091765.1
-    organism: Lactobacillus crispatus ST1
-
-  - accession: GCF_000182855.2
-    organism: Lactobacillus amylovorus GRL 1112
-
-  # Decoys
-  - accession: GCF_000005845.2
-    organism: Escherichia coli K-12 MG1655
-
-  - accession: GCF_000009045.1
-    organism: Bacillus subtilis 168
-
+- accession: GCF_000011985.1
+  organism: Lactobacillus acidophilus NCFM
+- accession: GCF_000008065.1
+  organism: Lactobacillus johnsonii NCC 533
+- accession: GCF_000014425.1
+  organism: Lactobacillus gasseri ATCC 33323
+- accession: GCF_000056065.1
+  organism: Lactobacillus delbrueckii subsp. bulgaricus ATCC 11842
+- accession: GCF_000091765.1
+  organism: Lactobacillus crispatus ST1
+- accession: GCF_000182855.2
+  organism: Lactobacillus amylovorus GRL 1112
+- accession: GCF_000005845.2
+  organism: Escherichia coli K-12 MG1655
+- accession: GCF_000009045.1
+  organism: Bacillus subtilis 168
+- accession: GCF_008831485.1
+  organism: Lactobacillus acetotolerans LA749
+- accession: GCF_003999355.1
+  organism: Lactobacillus amylolyticus L5
+- accession: GCF_003150935.1
+  organism: Lactobacillus apis ESL0185
+- accession: GCF_003173695.1
+  organism: Lactobacillus helsingborgensis ESL0183
+- accession: GCF_046109915.1
+  organism: Lactobacillus helveticus TCI357
+- accession: GCF_011058775.1
+  organism: Lactobacillus iners C0322A1
+- accession: GCF_024397795.1
+  organism: Lactobacillus intestinalis DSM 6629
+- accession: GCF_947539375.1
+  organism: Lactobacillus isalae AMBV1719
+- accession: GCF_001936235.1
+  organism: Lactobacillus jensenii SNUV360
+- accession: GCF_014656585.1
+  organism: Lactobacillus kefiranofaciens 1207
+- accession: GCF_055502585.1
+  organism: Lactobacillus kitasatonis PLL-01
+- accession: GCF_003151025.1
+  organism: Lactobacillus kullabergensis ESL0186
+- accession: GCF_042997415.1
+  organism: Lactobacillus mulieris CM2267_MRS1
+- accession: GCF_019469265.1
+  organism: Lactobacillus panisapium ESL0416
+- accession: GCF_003584685.1
+  organism: Lactobacillus paragasseri JCM 5343
+- accession: GCF_017894345.1
+  organism: Lactobacillus taiwanensis CLG01
+- accession: GCF_002762335.1
+  organism: Lactobacillus terrae NIBRBAC000499792
+- accession: GCF_016647595.1
+  organism: Lactobacillus ultunensis Kx293C1
+- accession: GCF_058091915.1
+  organism: Lactobacillus xujianguonis 06-2
+- accession: GCF_033096005.1
+  organism: Lactobacillus xylocopicola Kim32-2
+- accession: GCF_009738535.1
+  organism: Lactobacillus acetotolerans CN247
+- accession: GCF_034298135.1
+  organism: Lactobacillus acidophilus ATCC 4356
+- accession: GCF_002075105.1
+  organism: Lactobacillus amylolyticus L6
+- accession: GCF_000194115.1
+  organism: Lactobacillus amylovorus GRL1118
+- accession: GCF_030758575.1
+  organism: Lactobacillus apis K-MP7
+- accession: GCF_009769205.1
+  organism: Lactobacillus crispatus DC21.1
+- accession: GCF_001888925.1
+  organism: Lactobacillus delbrueckii DSM 26046
+- accession: GCF_000439915.2
+  organism: Lactobacillus gasseri 2016
+- accession: GCF_026428255.1
+  organism: Lactobacillus helsingborgensis IBH002
+- accession: GCF_051995165.1
+  organism: Lactobacillus helveticus AD031
+- accession: GCF_058136135.1
+  organism: Lactobacillus iners NVM196S18
+- accession: GCF_043000305.1
+  organism: Lactobacillus jensenii 188_Q1_1
+- accession: GCF_014058685.1
+  organism: Lactobacillus johnsonii NCK2677
+- accession: GCF_023674385.1
+  organism: Lactobacillus kefiranofaciens HL1
+- accession: GCF_042995895.1
+  organism: Lactobacillus mulieris 294_F1_4-2
+- accession: GCF_019469365.1
+  organism: Lactobacillus panisapium ESL0409
+- accession: GCF_045159885.1
+  organism: Lactobacillus paragasseri LGZ1029
+- accession: GCF_056830355.1
+  organism: Lactobacillus taiwanensis BT1808
+- accession: GCF_012848655.1
+  organism: Lactobacillus acetotolerans LJ49
+- accession: GCF_009913655.1
+  organism: Lactiplantibacillus plantarum SRCM100442
+- accession: GCF_900636965.1
+  organism: Lacticaseibacillus rhamnosus NCTC13764
+- accession: GCF_001008015.1
+  organism: Streptococcus thermophilus MN-BM-A02
 output_dir: data/raw
-
 qc:
   min_n50: 50000
   min_completeness: 90.0
   max_contamination: 5.0
-
 taxonomy:
   expected_genus: Lactobacillus
   min_expected_genus_bp_percent: 95.0
-
 catalogue:
-  version: "0.1"
+  version: '0.1'
   output_dir: results
-
 databases:
-  kraken2: "databases/kraken2"
+  kraken2: databases/kraken2

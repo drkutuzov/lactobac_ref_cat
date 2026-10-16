@@ -14,6 +14,8 @@ rule all:
         f"{OUTPUT_DIR}/catalogue_v{VERSION}_report.tsv",
         f"{OUTPUT_DIR}/lactobacillus_catalogue_v{VERSION}.fasta",
         f"{OUTPUT_DIR}/catalogue_v{VERSION}_stats.tsv",
+        f"{OUTPUT_DIR}/catalogue_v{VERSION}_validated.ok",
+
 
 
 rule acquire:
@@ -29,54 +31,82 @@ rule acquire:
 
 rule qc:
     input:
+        "data/raw/{accession}_genomic.fna"
+    output:
+        "results/qc/{accession}.tsv"
+    conda:
+        "workflow/envs/quast.yaml"
+    shell:
+        """
+        python3 src/qc.py {wildcards.accession}
+        """
+
+
+rule aggregate_qc:
+    input:
         expand(
-            "data/raw/{accession}_genomic.fna",
+            "results/qc/{accession}.tsv",
             accession=ACCESSIONS
         )
     output:
         "results/qc_summary.tsv"
-    conda: "workflow/envs/quast.yaml"
     shell:
         """
-        python3 src/qc.py
+        python3 src/aggregate_qc.py {input}
         """
 
 
 rule taxonomy:
     input:
+        "data/raw/{accession}_genomic.fna"
+    output:
+        "results/taxonomy/{accession}.tsv"
+    conda:
+        "workflow/envs/kraken2.yaml"
+    shell:
+        "python3 src/taxonomy.py {wildcards.accession}"
+
+
+rule aggregate_taxonomy:
+    input:
         expand(
-            "data/raw/{accession}_genomic.fna",
+            "results/taxonomy/{accession}.tsv",
             accession=ACCESSIONS
         )
     output:
         "results/taxonomy_summary.tsv"
-    conda:
-        "workflow/envs/kraken2.yaml"
     shell:
-        """
-        python3 src/taxonomy.py
-        """
+        "python3 src/aggregate_taxonomy.py {input}"
+
 
 rule checkm2:
     input:
-        expand(
-            "data/raw/{accession}_genomic.fna",
-            accession=ACCESSIONS
-        )
+        "data/raw/{accession}_genomic.fna"
     output:
-        "results/checkm2/quality_report.tsv"
+        "results/checkm2/{accession}/quality_report.tsv"
     threads: 4
     conda:
         "workflow/envs/checkm2.yaml"
     shell:
         """
         checkm2 predict \
-            --input data/raw \
-            --output-directory results/checkm2 \
-            --extension .fna \
+            --input {input} \
+            --output-directory results/checkm2/{wildcards.accession} \
             --threads {threads} \
             --force
         """
+
+
+rule aggregate_checkm2:
+    input:
+        expand(
+            "results/checkm2/{accession}/quality_report.tsv",
+            accession=ACCESSIONS
+        )
+    output:
+        "results/checkm2/quality_report.tsv"
+    shell:
+        "python3 src/aggregate_checkm2.py {input}"
 
 
 rule curate:
@@ -101,4 +131,22 @@ rule fasta_stats:
     shell:
         """
         python3 scripts/fasta_stats.py
+        """
+
+
+rule validate_catalogue:
+    input:
+        report=f"{OUTPUT_DIR}/catalogue_v{VERSION}_report.tsv",
+        catalogue=f"{OUTPUT_DIR}/lactobacillus_catalogue_v{VERSION}.fasta",
+        genomes=expand(
+            "data/raw/{accession}_genomic.fna",
+            accession=ACCESSIONS
+        )
+    output:
+        touch(f"{OUTPUT_DIR}/catalogue_v{VERSION}_validated.ok")
+    shell:
+        """
+        python3 tests/validate_catalogue.py \
+            --report {input.report} \
+            --fasta {input.catalogue}
         """

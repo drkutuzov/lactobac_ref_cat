@@ -7,3 +7,45 @@ GCF_000091765.1	Lactobacillus crispatus ST1	Lactobacillus	100.0	100.0	0.0	PASS
 GCF_000182855.2	Lactobacillus amylovorus GRL 1112	Lactobacillus	100.0	100.0	0.0	PASS
 GCF_000005845.2	Escherichia coli K-12 MG1655	Escherichia	100.0	0.0	0.0	FAIL
 GCF_000009045.1	Bacillus subtilis 168	Bacillus	100.0	0.0	0.0	FAIL
+GCF_008831485.1	Lactobacillus acetotolerans LA749	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_003999355.1	Lactobacillus amylolyticus L5	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_003150935.1	Lactobacillus apis ESL0185	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_003173695.1	Lactobacillus helsingborgensis ESL0183	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_046109915.1	Lactobacillus helveticus TCI357	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_011058775.1	Lactobacillus iners C0322A1	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_024397795.1	Lactobacillus intestinalis DSM 6629	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_947539375.1	Lactobacillus isalae AMBV1719	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_001936235.1	Lactobacillus jensenii SNUV360	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_014656585.1	Lactobacillus kefiranofaciens 1207	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_055502585.1	Lactobacillus kitasatonis PLL-01	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_003151025.1	Lactobacillus kullabergensis ESL0186	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_042997415.1	Lactobacillus mulieris CM2267_MRS1	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_019469265.1	Lactobacillus panisapium ESL0416	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_003584685.1	Lactobacillus paragasseri JCM 5343	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_017894345.1	Lactobacillus taiwanensis CLG01	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_002762335.1	Lactobacillus terrae NIBRBAC000499792	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_016647595.1	Lactobacillus ultunensis Kx293C1	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_058091915.1	Lactobacillus xujianguonis 06-2	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_033096005.1	Lactobacillus xylocopicola Kim32-2	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_009738535.1	Lactobacillus acetotolerans CN247	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_034298135.1	Lactobacillus acidophilus ATCC 4356	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_002075105.1	Lactobacillus amylolyticus L6	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_000194115.1	Lactobacillus amylovorus GRL1118	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_030758575.1	Lactobacillus apis K-MP7	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_009769205.1	Lactobacillus crispatus DC21.1	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_001888925.1	Lactobacillus delbrueckii DSM 26046	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_000439915.2	Lactobacillus gasseri 2016	Lactobacillus	50.0	98.6359774807902	0.0	PASS
+GCF_026428255.1	Lactobacillus helsingborgensis IBH002	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_051995165.1	Lactobacillus helveticus AD031	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_058136135.1	Lactobacillus iners NVM196S18	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_043000305.1	Lactobacillus jensenii 188_Q1_1	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_014058685.1	Lactobacillus johnsonii NCK2677	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_023674385.1	Lactobacillus kefiranofaciens HL1	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_042995895.1	Lactobacillus mulieris 294_F1_4-2	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_019469365.1	Lactobacillus panisapium ESL0409	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_045159885.1	Lactobacillus paragasseri LGZ1029	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_056830355.1	Lactobacillus taiwanensis BT1808	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_012848655.1	Lactobacillus acetotolerans LJ49	Lactobacillus	100.0	100.0	0.0	PASS
+GCF_009913655.1	Lactiplantibacillus plantarum SRCM100442	Lactiplantibacillus	100.0	0.0	0.0	FAIL
+GCF_900636965.1	Lacticaseibacillus rhamnosus NCTC13764	Lacticaseibacillus	100.0	0.0	0.0	FAIL
+GCF_001008015.1	Streptococcus thermophilus MN-BM-A02	Streptococcus	100.0	0.0	0.0	FAIL

@@ -7,3 +7,45 @@ GCF_000091765.1	Lactobacillus crispatus ST1	2043161	99.93	0.08	PASS	Lactobacillu
 GCF_000182855.2	Lactobacillus amylovorus GRL 1112	2067702	99.99	0.11	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
 GCF_000005845.2	Escherichia coli K-12 MG1655	4641652	100.0	0.14	PASS	Escherichia	100.0	0.0	0.0	FAIL	FAIL	Unexpected genus: Escherichia; Expected genus bp below threshold (0.00% < 95.00%)
 GCF_000009045.1	Bacillus subtilis 168	4215606	100.0	0.05	PASS	Bacillus	100.0	0.0	0.0	FAIL	FAIL	Unexpected genus: Bacillus; Expected genus bp below threshold (0.00% < 95.00%)
+GCF_008831485.1	Lactobacillus acetotolerans LA749	1683905	99.94	0.02	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_003999355.1	Lactobacillus amylolyticus L5	1400795	99.45	0.0	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_003150935.1	Lactobacillus apis ESL0185	1683102	99.98	0.81	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_003173695.1	Lactobacillus helsingborgensis ESL0183	1856015	99.97	1.07	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_046109915.1	Lactobacillus helveticus TCI357	2120944	100.0	0.69	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_011058775.1	Lactobacillus iners C0322A1	1318700	99.68	0.05	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_024397795.1	Lactobacillus intestinalis DSM 6629	1699754	99.66	0.26	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_947539375.1	Lactobacillus isalae AMBV1719	2119816	100.0	0.03	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_001936235.1	Lactobacillus jensenii SNUV360	1672949	99.94	0.12	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_014656585.1	Lactobacillus kefiranofaciens 1207	2149348	99.98	0.18	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_055502585.1	Lactobacillus kitasatonis PLL-01	1990324	99.98	0.07	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_003151025.1	Lactobacillus kullabergensis ESL0186	2018944	99.98	0.32	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_042997415.1	Lactobacillus mulieris CM2267_MRS1	1711925	99.99	0.06	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_019469265.1	Lactobacillus panisapium ESL0416	2188116	100.0	1.08	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_003584685.1	Lactobacillus paragasseri JCM 5343	1937632	99.96	0.02	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_017894345.1	Lactobacillus taiwanensis CLG01	1893948	99.98	0.07	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_002762335.1	Lactobacillus terrae NIBRBAC000499792	1548794	99.89	0.02	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_016647595.1	Lactobacillus ultunensis Kx293C1	2181027	99.95	0.19	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_058091915.1	Lactobacillus xujianguonis 06-2	1818159	99.75	0.12	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_033096005.1	Lactobacillus xylocopicola Kim32-2	1635875	99.33	0.31	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_009738535.1	Lactobacillus acetotolerans CN247	1677515	99.97	0.04	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_034298135.1	Lactobacillus acidophilus ATCC 4356	1978847	99.94	0.7	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_002075105.1	Lactobacillus amylolyticus L6	1422440	99.8	0.0	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_000194115.1	Lactobacillus amylovorus GRL1118	1894401	99.98	0.14	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_030758575.1	Lactobacillus apis K-MP7	1556433	99.83	0.67	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_009769205.1	Lactobacillus crispatus DC21.1	2023061	99.97	0.14	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_001888925.1	Lactobacillus delbrueckii DSM 26046	1891796	99.85	2.46	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_000439915.2	Lactobacillus gasseri 2016	1866966	99.98	0.01	PASS	Lactobacillus	50.0	98.6359774807902	0.0	PASS	PASS	Passed all gates
+GCF_026428255.1	Lactobacillus helsingborgensis IBH002	1889802	99.99	1.19	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_051995165.1	Lactobacillus helveticus AD031	2137516	100.0	0.68	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_058136135.1	Lactobacillus iners NVM196S18	1378061	99.96	0.09	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_043000305.1	Lactobacillus jensenii 188_Q1_1	1809156	99.94	0.16	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_014058685.1	Lactobacillus johnsonii NCK2677	1951416	99.99	0.0	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_023674385.1	Lactobacillus kefiranofaciens HL1	2180483	99.98	0.25	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_042995895.1	Lactobacillus mulieris 294_F1_4-2	1700550	99.95	0.09	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_019469365.1	Lactobacillus panisapium ESL0409	2151073	100.0	0.75	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_045159885.1	Lactobacillus paragasseri LGZ1029	1944354	99.96	0.12	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_056830355.1	Lactobacillus taiwanensis BT1808	1997325	99.98	0.02	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_012848655.1	Lactobacillus acetotolerans LJ49	1683950	99.96	0.49	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
+GCF_009913655.1	Lactiplantibacillus plantarum SRCM100442	3223643	100.0	0.22	PASS	Lactiplantibacillus	100.0	0.0	0.0	FAIL	FAIL	Unexpected genus: Lactiplantibacillus; Expected genus bp below threshold (0.00% < 95.00%)
+GCF_900636965.1	Lacticaseibacillus rhamnosus NCTC13764	2988387	99.96	0.07	PASS	Lacticaseibacillus	100.0	0.0	0.0	FAIL	FAIL	Unexpected genus: Lacticaseibacillus; Expected genus bp below threshold (0.00% < 95.00%)
+GCF_001008015.1	Streptococcus thermophilus MN-BM-A02	1850434	99.97	0.32	PASS	Streptococcus	100.0	0.0	0.0	FAIL	FAIL	Unexpected genus: Streptococcus; Expected genus bp below threshold (0.00% < 95.00%)

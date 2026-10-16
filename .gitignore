@@ -41,3 +41,19 @@ backups/
 
 # QUAST test output
 results/quast_test/
+
+# Per-genome intermediate results
+results/qc/
+results/taxonomy/
+
+# Validation completion markers
+results/*_validated.ok
+
+# Local backups and temporary selection files
+config_original.yaml
+src/*_original.py
+results/*_original.tsv
+results/genome_selection_manifest.tsv
+
+# Generated reference catalogue
+results/lactobacillus_catalogue_v*.fasta

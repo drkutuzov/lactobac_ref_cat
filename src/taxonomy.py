@@ -174,6 +174,97 @@ def find_genus_taxid(genus_name, names_path, taxonomy):
     raise ValueError(f"Genus not found in taxonomy: {genus_name}")
 
 
+def process_genome(accession, config):
+    """Run Kraken2 and write taxonomy results for one genome."""
+
+    genomes = {
+        genome["accession"]: genome
+        for genome in config["genomes"]
+    }
+
+    if accession not in genomes:
+        raise ValueError(f"Unknown accession: {accession}")
+
+    genome = genomes[accession]
+    organism = genome["organism"]
+
+    raw_dir = Path(config["output_dir"])
+    database_dir = Path(config["databases"]["kraken2"])
+    results_dir = Path("results/kraken2")
+    results_dir.mkdir(parents=True, exist_ok=True)
+
+    fasta_path = raw_dir / f"{accession}_genomic.fna"
+    report_path = results_dir / f"{accession}.report"
+    output_path = results_dir / f"{accession}.output"
+
+    run_kraken(fasta_path, database_dir, report_path, output_path)
+
+    taxonomy = load_taxonomy_nodes(database_dir / "nodes.dmp")
+
+    expected_genus = config["taxonomy"]["expected_genus"]
+    expected_genus_taxid = find_genus_taxid(
+        expected_genus,
+        database_dir / "names.dmp",
+        taxonomy,
+    )
+
+    genus = parse_dominant_genus(report_path)
+    assignments = parse_sequence_assignments(output_path)
+
+    genus_bp_percent, unclassified_bp_percent = calculate_genus_bp_percent(
+        assignments,
+        taxonomy,
+        expected_genus_taxid,
+    )
+
+    genus_name = genus["name"] if genus else "Unclassified"
+    percentage = genus["percentage"] if genus else 0.0
+
+    status = (
+        "PASS"
+        if genus_name == expected_genus
+        and genus_bp_percent >= config["taxonomy"]["min_expected_genus_bp_percent"]
+        else "FAIL"
+    )
+
+    summary_dir = Path("results/taxonomy")
+    summary_dir.mkdir(parents=True, exist_ok=True)
+    summary_path = summary_dir / f"{accession}.tsv"
+
+    with summary_path.open("w", newline="") as file:
+        writer = csv.DictWriter(
+            file,
+            fieldnames=[
+                "accession",
+                "organism",
+                "dominant_genus",
+                "genus_percent",
+                "expected_genus_bp_percent",
+                "unclassified_bp_percent",
+                "status",
+            ],
+            delimiter="\t",
+            lineterminator="\n",
+        )
+
+        writer.writeheader()
+        writer.writerow({
+            "accession": accession,
+            "organism": organism,
+            "dominant_genus": genus_name,
+            "genus_percent": percentage,
+            "expected_genus_bp_percent": genus_bp_percent,
+            "unclassified_bp_percent": unclassified_bp_percent,
+            "status": status,
+        })
+
+    print(
+        f"{accession}: {organism} → "
+        f"{genus_name} ({percentage:.2f}%) → {status}"
+    )
+    print(f"Taxonomy saved: {summary_path}")
+
+
 def main():
     config = load_config(CONFIG_PATH)
 
@@ -283,4 +374,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    if len(sys.argv) == 2:
+        config = load_config(CONFIG_PATH)
+        process_genome(sys.argv[1], config)
+    else:
+        main()

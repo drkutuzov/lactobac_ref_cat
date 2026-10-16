@@ -5,4 +5,4 @@ channels:
 dependencies:
   - python=3.12
   - pyyaml
-- ncbi-datasets-cli=18.38.0
+  - ncbi-datasets-cli=18.38.0

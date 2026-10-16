@@ -1,0 +1,43 @@
+accession	species	strain	selection_group	genome_length_bp	completeness	contamination	taxonomy_check
+GCF_008831485.1	Lactobacillus acetotolerans	LA749	new_species	1683905	97.98	0.7	OK
+GCF_003999355.1	Lactobacillus amylolyticus	L5	new_species	1601193	98.87	0.81	OK
+GCF_003150935.1	Lactobacillus apis	ESL0185	new_species	1683102	97.74	0.32	OK
+GCF_003173695.1	Lactobacillus helsingborgensis	ESL0183	new_species	1867232	98.06	0.65	Inconclusive
+GCF_046109915.1	Lactobacillus helveticus	TCI357	new_species	2120944	98.95	0.12	OK
+GCF_011058775.1	Lactobacillus iners	C0322A1	new_species	1318700	99.61	0.4	OK
+GCF_024397795.1	Lactobacillus intestinalis	DSM 6629	new_species	2038712	99.03	0.16	OK
+GCF_947539375.1	Lactobacillus isalae	AMBV1719	new_species	2119816	98.71	0.48	OK
+GCF_001936235.1	Lactobacillus jensenii	SNUV360	new_species	1672949	97.13	1.44	OK
+GCF_014656585.1	Lactobacillus kefiranofaciens	1207	new_species	2173634	99.03	0.16	OK
+GCF_055502585.1	Lactobacillus kitasatonis	PLL-01	new_species	1999355	99.03	0.16	OK
+GCF_003151025.1	Lactobacillus kullabergensis	ESL0186	new_species	2018944	97.74	0.48	OK
+GCF_042997415.1	Lactobacillus mulieris	CM2267_MRS1	new_species	1711925	98.71	0.23	OK
+GCF_019469265.1	Lactobacillus panisapium	ESL0416	new_species	2188116	97.74	0.4	Inconclusive
+GCF_003584685.1	Lactobacillus paragasseri	JCM 5343	new_species	1937632	99.27	0.16	OK
+GCF_017894345.1	Lactobacillus taiwanensis	CLG01	new_species	2041763	98.71	0.34	OK
+GCF_002762335.1	Lactobacillus terrae	NIBRBAC000499792	new_species	1548794	97.34	0.16	Inconclusive
+GCF_016647595.1	Lactobacillus ultunensis	Kx293C1	new_species	2246389	99.03	0.81	OK
+GCF_058091915.1	Lactobacillus xujianguonis	06-2	new_species	2525510	99.68	0.16	OK
+GCF_033096005.1	Lactobacillus xylocopicola	Kim32-2	new_species	1635875	96.13	0.24	OK
+GCF_009738535.1	Lactobacillus acetotolerans	CN247	additional_strain	1677515	98.06	0.48	OK
+GCF_034298135.1	Lactobacillus acidophilus	ATCC 4356	additional_strain	1978847	95.66	0.26	OK
+GCF_002075105.1	Lactobacillus amylolyticus	L6	additional_strain	1636037	98.71	0.81	OK
+GCF_000194115.1	Lactobacillus amylovorus	GRL1118	additional_strain	1977087	96.66	0.36	OK
+GCF_030758575.1	Lactobacillus apis	K-MP7	additional_strain	1556433	97.1	0.32	OK
+GCF_009769205.1	Lactobacillus crispatus	DC21.1	additional_strain	2039404	95.69	3.56	OK
+GCF_001888925.1	Lactobacillus delbrueckii	DSM 26046	additional_strain	1891796	98.93	1.51	OK
+GCF_000439915.2	Lactobacillus gasseri	2016	additional_strain	1892784	99.62	0.27	OK
+GCF_026428255.1	Lactobacillus helsingborgensis	IBH002	additional_strain	2025689	98.06	0.83	Inconclusive
+GCF_051995165.1	Lactobacillus helveticus	AD031	additional_strain	2168233	98.95	0.12	OK
+GCF_058136135.1	Lactobacillus iners	NVM196S18	additional_strain	1378061	99.61	0.6	OK
+GCF_043000305.1	Lactobacillus jensenii	188_Q1_1	additional_strain	1809156	97.15	1.44	OK
+GCF_014058685.1	Lactobacillus johnsonii	NCK2677	additional_strain	1951416	95.35	0.81	OK
+GCF_023674385.1	Lactobacillus kefiranofaciens	HL1	additional_strain	2216505	98.95	0.38	OK
+GCF_042995895.1	Lactobacillus mulieris	294_F1_4-2	additional_strain	1700550	97.98	0.16	OK
+GCF_019469365.1	Lactobacillus panisapium	ESL0409	additional_strain	2151073	97.74	0.4	Inconclusive
+GCF_045159885.1	Lactobacillus paragasseri	LGZ1029	additional_strain	2027325	99.35	0.16	OK
+GCF_056830355.1	Lactobacillus taiwanensis	BT1808	additional_strain	1997325	99.35	0.16	OK
+GCF_012848655.1	Lactobacillus acetotolerans	LJ49	additional_strain	1683950	98.06	0.7	OK
+GCF_009913655.1	Lactiplantibacillus plantarum	SRCM100442	negative_control	3223643	99.02	1.72	OK
+GCF_900636965.1	Lacticaseibacillus rhamnosus	NCTC13764	negative_control	2988387	98.86	0.45	OK
+GCF_001008015.1	Streptococcus thermophilus	MN-BM-A02	negative_control	1850434	97.75	0.76	OK
