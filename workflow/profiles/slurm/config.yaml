@@ -1,0 +1,14 @@
+executor: slurm
+jobs: 20
+use-conda: true
+
+configfiles:
+  - workflow/config/hpc.yaml
+
+rerun-triggers:
+  - mtime
+  - input
+
+default-resources:
+  mem_mb: 2000
+  runtime: 30

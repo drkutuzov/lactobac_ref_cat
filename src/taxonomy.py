@@ -12,7 +12,7 @@ def load_config(path):
         return yaml.safe_load(file)
 
 
-def run_kraken(fasta_path, database_dir, report_path, output_path):
+def run_kraken(fasta_path, database_dir, report_path, output_path, threads=1):
     """Run Kraken2 on one genome FASTA."""
     print(f"Running Kraken2: {fasta_path.name}")
 
@@ -20,6 +20,7 @@ def run_kraken(fasta_path, database_dir, report_path, output_path):
         [
             "kraken2",
             "--db", str(database_dir),
+            "--threads", str(threads),
             "--report", str(report_path),
             "--output", str(output_path),
             str(fasta_path),
@@ -174,7 +175,7 @@ def find_genus_taxid(genus_name, names_path, taxonomy):
     raise ValueError(f"Genus not found in taxonomy: {genus_name}")
 
 
-def process_genome(accession, config):
+def process_genome(accession, config, threads=1):
     """Run Kraken2 and write taxonomy results for one genome."""
 
     genomes = {
@@ -197,7 +198,7 @@ def process_genome(accession, config):
     report_path = results_dir / f"{accession}.report"
     output_path = results_dir / f"{accession}.output"
 
-    run_kraken(fasta_path, database_dir, report_path, output_path)
+    run_kraken(fasta_path, database_dir, report_path, output_path, threads)
 
     taxonomy = load_taxonomy_nodes(database_dir / "nodes.dmp")
 
@@ -376,8 +377,15 @@ def main():
 if __name__ == "__main__":
     import sys
 
-    if len(sys.argv) == 2:
+    if len(sys.argv) in (2, 3, 4):
         config = load_config(CONFIG_PATH)
-        process_genome(sys.argv[1], config)
+
+        accession = sys.argv[1]
+        threads = int(sys.argv[2]) if len(sys.argv) >= 3 else 1
+
+        if len(sys.argv) == 4:
+            config["databases"]["kraken2"] = sys.argv[3]
+
+        process_genome(accession, config, threads)
     else:
         main()

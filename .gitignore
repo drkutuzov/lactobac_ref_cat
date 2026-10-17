@@ -57,3 +57,6 @@ results/genome_selection_manifest.tsv
 
 # Generated reference catalogue
 results/lactobacillus_catalogue_v*.fasta
+
+# Machine-specific configuration
+workflow/config/local.yaml

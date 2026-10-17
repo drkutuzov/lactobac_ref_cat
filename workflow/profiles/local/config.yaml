@@ -1,0 +1,10 @@
+executor: local
+cores: 4
+use-conda: true
+
+configfiles:
+  - workflow/config/local.yaml
+
+rerun-triggers:
+  - mtime
+  - input

@@ -34,12 +34,16 @@ rule qc:
         "data/raw/{accession}_genomic.fna"
     output:
         "results/qc/{accession}.tsv"
+    threads: 4
+    resources:
+        mem_mb=8000,
+        runtime=60
     conda:
         "workflow/envs/quast.yaml"
+    log:
+        "logs/quast/{accession}.log"
     shell:
-        """
-        python3 src/qc.py {wildcards.accession}
-        """
+        "python3 src/qc.py {wildcards.accession} {threads} > {log} 2>&1"
 
 
 rule aggregate_qc:
@@ -61,10 +65,18 @@ rule taxonomy:
         "data/raw/{accession}_genomic.fna"
     output:
         "results/taxonomy/{accession}.tsv"
+    threads: 4
+    resources:
+        mem_mb=16000,
+        runtime=120
     conda:
         "workflow/envs/kraken2.yaml"
+    log:
+        "logs/kraken2/{accession}.log"
+    params:
+        db=config["databases"]["kraken2"]
     shell:
-        "python3 src/taxonomy.py {wildcards.accession}"
+        "python3 src/taxonomy.py {wildcards.accession} {threads} {params.db:q} > {log:q} 2>&1"
 
 
 rule aggregate_taxonomy:
@@ -85,11 +97,16 @@ rule checkm2:
     output:
         "results/checkm2/{accession}/quality_report.tsv"
     threads: 4
+    resources:
+        mem_mb=16000,
+        runtime=180
+    params:
+        db=config["databases"]["checkm2"]
     conda:
         "workflow/envs/checkm2.yaml"
     shell:
         """
-        checkm2 predict \
+        CHECKM2DB="{params.db}" checkm2 predict \
             --input {input} \
             --output-directory results/checkm2/{wildcards.accession} \
             --threads {threads} \

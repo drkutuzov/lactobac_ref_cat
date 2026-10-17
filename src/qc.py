@@ -13,7 +13,7 @@ def load_config(path):
         return yaml.safe_load(file)
 
 
-def run_quast(fasta_path, output_dir):
+def run_quast(fasta_path, output_dir, threads=1):
     """Run QUAST on one genome FASTA."""
 
     print(f"Running QUAST: {fasta_path.name}")
@@ -24,6 +24,8 @@ def run_quast(fasta_path, output_dir):
             str(fasta_path),
             "-o",
             str(output_dir),
+            "--threads",
+            str(threads),
             "--silent",
         ],
         check=True,
@@ -60,7 +62,7 @@ def parse_quast_report(report_path):
     return metrics
 
 
-def process_genome(accession, config):
+def process_genome(accession, config, threads=1):
     """Run QUAST and save QC results for one genome."""
 
     genomes = {
@@ -78,7 +80,7 @@ def process_genome(accession, config):
 
     quast_dir = Path("results/quast") / accession
 
-    run_quast(fasta_path, quast_dir)
+    run_quast(fasta_path, quast_dir, threads)
 
     metrics = parse_quast_report(quast_dir / "report.tsv")
 
@@ -190,8 +192,9 @@ def main():
 if __name__ == "__main__":
     import sys
 
-    if len(sys.argv) == 2:
+    if len(sys.argv) in (2, 3):
         config = load_config(CONFIG_PATH)
-        process_genome(sys.argv[1], config)
+        threads = int(sys.argv[2]) if len(sys.argv) == 3 else 1
+        process_genome(sys.argv[1], config, threads)
     else:
         main()

@@ -1,0 +1,3 @@
+databases:
+  kraken2: /path/on/hpc/to/kraken2
+  checkm2: /path/on/hpc/to/uniref100.KO.1.dmnd
