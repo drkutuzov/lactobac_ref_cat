@@ -60,3 +60,4 @@ results/lactobacillus_catalogue_v*.fasta
 
 # Machine-specific configuration
 workflow/config/local.yaml
+workflow/config/hpc.hendrix.yaml

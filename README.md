@@ -24,15 +24,14 @@ appropriate order.
 
 ## Dataset
 
-The example dataset contains eight NCBI RefSeq assemblies:
+The dataset contains **50 NCBI RefSeq assemblies**:
 
-- Six Lactobacillus genomes.
-- Two negative controls: Escherichia coli and Bacillus subtilis.
+- 45 *Lactobacillus* reference genomes.
+- 5 negative-control genomes from outside the expected genus.
 
 Assembly accessions are specified in `config.yaml`.
 
-The negative controls test whether the taxonomic validation step
-correctly rejects genomes outside the expected genus.
+The negative controls test whether the taxonomic validation step correctly rejects genomes outside the expected genus, including high-quality assemblies that pass assembly quality checks.
 
 ## Requirements
 
@@ -53,19 +52,58 @@ the complete workflow.
 
 ### Kraken2
 
-The pipeline expects a Kraken2 database at:
+The pipeline supports two Kraken2 database configurations:
 
-`databases/kraken2/`
+| Database | Intended use | Release |
+|---|---|---|
+| Standard-8 (8 GB) | Smaller-scale local testing | 2026-06-26 |
+| Full Standard | Complete catalogue production and HPC execution | 2026-06-26 |
 
-This location is configurable in `config.yaml`:
+The full 50-genome catalogue was generated using the **full Kraken2 Standard database**.
+
+#### Database configuration
+
+Specify the database directory in `config.yaml`:
 
 ```yaml
 databases:
   kraken2: "databases/kraken2"
 ```
 
-The example workflow was tested with the Kraken2 Standard-8 database
-dated 2026-06-26.
+For the full Standard database, use:
+
+```yaml
+databases:
+  kraken2: "databases/kraken2_standard"
+```
+
+On HPC systems, the database path can be overridden in `workflow/config/hpc.yaml`.
+
+The selected database must contain `hash.k2d`, `opts.k2d`, `taxo.k2d`, `nodes.dmp`, and `names.dmp`. The last two files are required by the pipeline for resolving taxonomic ancestry.
+
+#### Database provenance
+
+**Standard-8 database — local testing**
+
+- Release: 2026-06-26
+- Archive: `k2_standard_08_GB_20260626.tar.gz`
+- SHA-256:
+
+```text
+b17d05ca1459564b49b63d014c4b2ee6ebe1ca0143e6c184e0dfd6d940a55981
+```
+
+**Full Standard database — HPC validation**
+
+- Release: 2026-06-26
+- Archive: `k2_standard_20260626.tar.gz`
+- Download URL: `https://genome-idx.s3.amazonaws.com/kraken/k2_standard_20260626.tar.gz`
+- Extracted Kraken2 index (`hash.k2d`): approximately 104 GB
+- Used for the successful 50-genome Hendrix SLURM run on 19 October 2026
+
+A SHA-256 checksum for the full Standard archive has not yet been recorded.
+
+Both databases are stored outside version control because of their size.
 
 ### Length-weighted taxonomy validation
 
@@ -102,31 +140,6 @@ contributes its entire length to that genus.
 **Database requirement:** The configured Kraken2 database must
 contain nodes.dmp and names.dmp for taxonomic ancestry resolution.
 
-#### Database provenance
-
-The pipeline was tested using the following Kraken2 database:
-
-- **Database:** Standard-8 (8 GB)
-- **Release:** 2026-06-26
-- **Archive:** `k2_standard_08_GB_20260626.tar.gz`
-- **SHA-256:**
-
-  ```text
-  b17d05ca1459564b49b63d014c4b2ee6ebe1ca0143e6c184e0dfd6d940a55981
-  ```
-
-To verify the downloaded archive on macOS or Linux:
-
-```bash
-shasum -a 256 databases/kraken2/k2_standard_08_GB_20260626.tar.gz
-```
-
-The calculated checksum should match the value above.
-
-Download and extract a compatible Kraken2 database into the configured
-directory.
-
-The database directory is excluded from Git because of its size.
 
 ### CheckM2
 
@@ -188,6 +201,40 @@ To preview the planned jobs without executing them:
 snakemake -n --cores 4 --software-deployment-method conda
 ```
 
+## HPC execution (SLURM)
+
+The complete 50-genome workflow was successfully executed on the University of Copenhagen's **Hendrix HPC cluster** using Snakemake 9 and the SLURM executor.
+
+The cluster configuration is defined in:
+
+- `workflow/profiles/slurm/config.yaml` — SLURM executor, job limits, resource requests, and account/partition settings.
+- `workflow/config/hpc.yaml` — HPC-specific database paths.
+
+Before execution, ensure that Snakemake and Conda are available and that the Kraken2 and CheckM2 databases have been installed.
+
+From the project root, launch the workflow with:
+
+```bash
+snakemake --profile workflow/profiles/slurm \
+  --resources taxonomy_slots=2 \
+  --rerun-triggers mtime input
+```
+
+This configuration permits up to 20 concurrently submitted jobs, including a maximum of two simultaneous Kraken2 taxonomy jobs. Each Kraken2 job requests 128 GB of RAM to accommodate the full Standard database.
+
+### HPC validation results
+
+The complete workflow finished successfully on **19 October 2026**:
+
+- **202 of 202 Snakemake steps completed.**
+- All 50 candidate genomes were processed.
+- 45 *Lactobacillus* genomes passed the quality and taxonomy criteria.
+- Five negative-control genomes were excluded.
+- The final FASTA catalogue and accompanying statistics were generated.
+- The automated `validate_catalogue` rule completed successfully.
+
+This run demonstrates successful end-to-end execution of the pipeline on a SLURM-managed HPC cluster.
+
 ## Outputs
 
 The main outputs are:
@@ -209,17 +256,20 @@ to preserve provenance.
 
 ## Example results
 
-Catalogue version 0.1 produced:
+Catalogue version 0.1 was generated from 50 candidate assemblies on the Hendrix HPC cluster on 19 October 2026.
 
 | Metric | Result |
 |---|---:|
-| Candidate assemblies | 8 |
-| Accepted assemblies | 6 |
-| Rejected assemblies | 2 |
-| FASTA records | 8 |
-| Total sequence length | 11,915,429 bp |
+| Candidate assemblies | 50 |
+| Accepted assemblies | 45 |
+| Rejected assemblies | 5 |
+| Acceptance rate | 90% |
+| Automated catalogue validation | PASS |
+| Snakemake execution | 202/202 steps completed |
 
-Both negative controls were rejected by the taxonomic validation gate.
+All 45 intended *Lactobacillus* genomes were retained, while all five negative controls were excluded.
+
+The curated FASTA is available at `results/lactobacillus_catalogue_v0.1.fasta`, and individual inclusion or exclusion decisions are documented in `results/catalogue_v0.1_report.tsv`.
 
 ## Reproducibility
 

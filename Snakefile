@@ -67,7 +67,8 @@ rule taxonomy:
         "results/taxonomy/{accession}.tsv"
     threads: 4
     resources:
-        mem_mb=16000,
+        mem_mb=128000,
+        taxonomy_slots=1,
         runtime=120
     conda:
         "workflow/envs/kraken2.yaml"

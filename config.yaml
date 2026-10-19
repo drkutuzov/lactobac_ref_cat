@@ -111,4 +111,4 @@ catalogue:
   version: '0.1'
   output_dir: results
 databases:
-  kraken2: databases/kraken2
+  kraken2: databases/kraken2_standard

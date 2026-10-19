@@ -34,7 +34,7 @@ GCF_000194115.1	Lactobacillus amylovorus GRL1118	1894401	99.98	0.14	PASS	Lactoba
 GCF_030758575.1	Lactobacillus apis K-MP7	1556433	99.83	0.67	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
 GCF_009769205.1	Lactobacillus crispatus DC21.1	2023061	99.97	0.14	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
 GCF_001888925.1	Lactobacillus delbrueckii DSM 26046	1891796	99.85	2.46	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
-GCF_000439915.2	Lactobacillus gasseri 2016	1866966	99.98	0.01	PASS	Lactobacillus	50.0	98.6359774807902	0.0	PASS	PASS	Passed all gates
+GCF_000439915.2	Lactobacillus gasseri 2016	1866966	99.98	0.01	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
 GCF_026428255.1	Lactobacillus helsingborgensis IBH002	1889802	99.99	1.19	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
 GCF_051995165.1	Lactobacillus helveticus AD031	2137516	100.0	0.68	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
 GCF_058136135.1	Lactobacillus iners NVM196S18	1378061	99.96	0.09	PASS	Lactobacillus	100.0	100.0	0.0	PASS	PASS	Passed all gates
